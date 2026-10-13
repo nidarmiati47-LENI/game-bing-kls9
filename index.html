@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Bahasa Inggris Kelas 9 SMP - Recount Text</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --warning-bg: #fef3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border-left: 6px solid var(--primary);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .reading-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #0284c7;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .reading-box h4 {
+            margin-bottom: 8px;
+            color: #0369a1;
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .question-number {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: #eff6ff;
+        }
+
+        .option-label input {
+            margin-right: 12px;
+            accent-color: var(--primary);
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 30px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .result-box {
+            display: none;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 25px;
+            border: 2px solid var(--primary);
+        }
+
+        .result-score {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .correct-ans {
+            background-color: #dcfce7 !important;
+            border-color: var(--success) !important;
+        }
+
+        .wrong-ans {
+            background-color: #fee2e2 !important;
+            border-color: var(--danger) !important;
+        }
+
+        .explanation {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Soal Evaluasi Bahasa Inggris: Recount Text</h1>
+        <p>Materi: Recount Text (Definition, Structure, Language Features, Comprehension) | Kelas 9 SMP</p>
+
+        <div class="student-info">
+            <div class="input-group">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" placeholder="Masukkan nama...">
+            </div>
+            <div class="input-group">
+                <label for="class">Kelas:</label>
+                <input type="text" id="class" placeholder="Contoh: IX-A">
+            </div>
+        </div>
+    </header>
+
+    <form id="quizForm">
+
+        <!-- PART 1: CONCEPTS -->
+        <div class="question-card" id="q1">
+            <div class="question-number">Soal 1</div>
+            <div class="question-text">What is the main social function of a Recount Text?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q1" value="A"> A. To retell past events or experiences to entertain or inform readers</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> B. To persuade the readers to do something</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> C. To describe a specific person, place, or thing in detail</label>
+                <label class="option-label"><input type="radio" name="q1" value="D"> D. To explain the process of how something works</label>
+            </div>
+            <div class="explanation">Kunci: A. Recount text bertujuan menceritakan kembali kejadian masa lalu.</div>
+        </div>
+
+        <div class="question-card" id="q2">
+            <div class="question-number">Soal 2</div>
+            <div class="question-text">What is the generic structure of a Recount Text in correct order?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q2" value="A"> A. Orientation - Complication - Resolution</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> B. Orientation - Events - Reorientation</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> C. Identification - Description</label>
+                <label class="option-label"><input type="radio" name="q2" value="D"> D. Goal - Materials - Steps</label>
+            </div>
+            <div class="explanation">Kunci: B. Struktur Recount Text adalah Orientation, Events, Reorientation.</div>
+        </div>
+
+        <div class="question-card" id="q3">
+            <div class="question-number">Soal 3</div>
+            <div class="question-text">Which part of a Recount Text introduces the characters, time, and location of the story?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q3" value="A"> A. Reorientation</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> B. Complication</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> C. Orientation</label>
+                <label class="option-label"><input type="radio" name="q3" value="D"> D. Events</label>
+            </div>
+            <div class="explanation">Kunci: C. Orientation mengenalkan Who, Where, dan When.</div>
+        </div>
+
+        <div class="question-card" id="q4">
+            <div class="question-number">Soal 4</div>
+            <div class="question-text">What does the "Reorientation" paragraph contain?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q4" value="A"> A. The personal opinion, feeling, or conclusion of the writer</label>
+                <label class="option-label"><input type="radio" name="q4" value="B"> B. A major problem or conflict faced by the main character</label>
+                <label class="option-label"><input type="radio" name="q4" value="C"> C. Step-by-step instructions to achieve a goal</label>
+                <label class="option-label"><input type="radio" name="q4" value="D"> D. Detailed description of physical attributes</label>
+            </div>
+            <div class="explanation">Kunci: A. Reorientation berisi kesimpulan atau penutup opini penulis.</div>
+        </div>
+
+        <div class="question-card" id="q5">
+            <div class="question-number">Soal 5</div>
+            <div class="question-text">Which verb tense is predominantly used in writing Recount Texts?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q5" value="A"> A. Simple Present Tense</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> B. Simple Past Tense</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> C. Simple Future Tense</label>
+                <label class="option-label"><input type="radio" name="q5" value="D"> D. Present Continuous Tense</label>
+            </div>
+            <div class="explanation">Kunci: B. Recount text menggunakan Simple Past Tense.</div>
+        </div>
+
+        <div class="question-card" id="q6">
+            <div class="question-number">Soal 6</div>
+            <div class="question-text">Which group of words represents time connectives commonly used in Recount Texts?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q6" value="A"> A. Beautiful, fast, slowly, brightly</label>
+                <label class="option-label"><input type="radio" name="q6" value="B"> B. Because, although, since, despite</label>
+                <label class="option-label"><input type="radio" name="q6" value="C"> C. If, unless, provided that, in case</label>
+                <label class="option-label"><input type="radio" name="q6" value="D"> D. First, then, after that, finally</label>
+            </div>
+            <div class="explanation">Kunci: D. Time connectives penanda urutan waktu: First, then, after that, dst.</div>
+        </div>
+
+        <div class="question-card" id="q7">
+            <div class="question-number">Soal 7</div>
+            <div class="question-text">Which of the following contains ONLY past tense action verbs?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q7" value="A"> A. Walk, see, buy, run</label>
+                <label class="option-label"><input type="radio" name="q7" value="B"> B. Walking, seeing, buying, running</label>
+                <label class="option-label"><input type="radio" name="q7" value="C"> C. Visited, went, bought, watched</label>
+                <label class="option-label"><input type="radio" name="q7" value="D"> D. Will visit, will go, will buy, will watch</label>
+            </div>
+            <div class="explanation">Kunci: C. Visited, went, bought, watched merupakan Verb 2 (Past Tense).</div>
+        </div>
+
+        <div class="question-card" id="q8">
+            <div class="question-number">Soal 8</div>
+            <div class="question-text">What is the key difference between a Recount Text and a Narrative Text?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q8" value="A"> A. Recount text does NOT have a complication/conflict, whereas Narrative text has a complication</label>
+                <label class="option-label"><input type="radio" name="q8" value="B"> B. Recount text uses present tense, while Narrative uses past tense</label>
+                <label class="option-label"><input type="radio" name="q8" value="C"> C. Recount text gives instructions, while Narrative gives description</label>
+                <label class="option-label"><input type="radio" name="q8" value="D"> D. Narrative text is always true, while Recount text is always fictional</label>
+            </div>
+            <div class="explanation">Kunci: A. Recount tidak memiliki konflik/komplikasi seperti pada Narrative.</div>
+        </div>
+
+        <div class="question-card" id="q9">
+            <div class="question-number">Soal 9</div>
+            <div class="question-text">Which of the following are three common types of Recount Text?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q9" value="A"> A. Fable, Legend, Myth</label>
+                <label class="option-label"><input type="radio" name="q9" value="B"> B. Personal Recount, Historical Recount, Biographical Recount</label>
+                <label class="option-label"><input type="radio" name="q9" value="C"> C. Analytical, Hortatory, Explanation</label>
+                <label class="option-label"><input type="radio" name="q9" value="D"> D. Procedure, Report, Descriptive</label>
+            </div>
+            <div class="explanation">Kunci: B. Jenis recount: Personal, Historical, dan Biographical.</div>
+        </div>
+
+        <div class="question-card" id="q10">
+            <div class="question-number">Soal 10</div>
+            <div class="question-text">Personal recount texts usually use which point of view?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q10" value="A"> A. Second person (You)</label>
+                <label class="option-label"><input type="radio" name="q10" value="B"> B. Third person objective (He, She, They)</label>
+                <label class="option-label"><input type="radio" name="q10" value="C"> C. Passive perspective only</label>
+                <label class="option-label"><input type="radio" name="q10" value="D"> D. First person (I, We)</label>
+            </div>
+            <div class="explanation">Kunci: D. Personal recount menggunakan kata ganti orang pertama (I, We).</div>
+        </div>
+
+        <!-- PART 2: GRAMMAR & STRUCTURE -->
+        <div class="question-card" id="q11">
+            <div class="question-number">Soal 11</div>
+            <div class="question-text">Yesterday, my family and I _____ to Kuta Beach in Bali.</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q11" value="A"> A. go</label>
+                <label class="option-label"><input type="radio" name="q11" value="B"> B. went</label>
+                <label class="option-label"><input type="radio" name="q11" value="C"> C. gone</label>
+                <label class="option-label"><input type="radio" name="q11" value="D"> D. going</label>
+            </div>
+            <div class="explanation">Kunci: B. Past tense dari 'go' adalah 'went'.</div>
+        </div>
+
+        <div class="question-card" id="q12">
+            <div class="question-number">Soal 12</div>
+            <div class="question-text">She _____ not join the study tour last week because she was ill.</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q12" value="A"> A. did</label>
+                <label class="option-label"><input type="radio" name="q12" value="B"> B. does</label>
+                <label class="option-label"><input type="radio" name="q12" value="C"> C. do</label>
+                <label class="option-label"><input type="radio" name="q12" value="D"> D. was</label>
+            </div>
+            <div class="explanation">Kunci: A. Kalimat negatif past tense menggunakan auxiliary verb 'did'.</div>
+        </div>
+
+        <div class="question-card" id="q13">
+            <div class="question-number">Soal 13</div>
+            <div class="question-text">_____ you visit your grandparents during the last holiday?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q13" value="A"> A. Do</label>
+                <label class="option-label"><input type="radio" name="q13" value="B"> B. Does</label>
+                <label class="option-label"><input type="radio" name="q13" value="C"> C. Did</label>
+                <label class="option-label"><input type="radio" name="q13" value="D"> D. Were</label>
+            </div>
+            <div class="explanation">Kunci: C. Kalimat tanya past tense dimulai dengan kata bantu 'Did'.</div>
+        </div>
+
+        <div class="question-card" id="q14">
+            <div class="question-number">Soal 14</div>
+            <div class="question-text">What is the Past Tense (Verb 2) form of "buy"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q14" value="A"> A. Buyed</label>
+                <label class="option-label"><input type="radio" name="q14" value="B"> B. Buying</label>
+                <label class="option-label"><input type="radio" name="q14" value="C"> C. Buys</label>
+                <label class="option-label"><input type="radio" name="q14" value="D"> D. Bought</label>
+            </div>
+            <div class="explanation">Kunci: D. Verb 2 dari buy adalah bought.</div>
+        </div>
+
+        <div class="question-card" id="q15">
+            <div class="question-number">Soal 15</div>
+            <div class="question-text">What is the Past Tense (Verb 2) form of the regular verb "play"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q15" value="A"> A. Pled</label>
+                <label class="option-label"><input type="radio" name="q15" value="B"> B. Played</label>
+                <label class="option-label"><input type="radio" name="q15" value="C"> C. Plays</label>
+                <label class="option-label"><input type="radio" name="q15" value="D"> D. Playing</label>
+            </div>
+            <div class="explanation">Kunci: B. Regular verb 'play' menjadi 'played'.</div>
+        </div>
+
+        <div class="question-card" id="q16">
+            <div class="question-number">Soal 16</div>
+            <div class="question-text">First, we arrived at the hotel. _____, we unpacked our bags and went to the swimming pool.</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q16" value="A"> A. Then</label>
+                <label class="option-label"><input type="radio" name="q16" value="B"> B. Because</label>
+                <label class="option-label"><input type="radio" name="q16" value="C"> C. Although</label>
+                <label class="option-label"><input type="radio" name="q16" value="D"> D. But</label>
+            </div>
+            <div class="explanation">Kunci: A. 'Then' digunakan untuk menyatakan urutan peristiwa setelah 'First'.</div>
+        </div>
+
+        <div class="question-card" id="q17">
+            <div class="question-number">Soal 17</div>
+            <div class="question-text">Which of the following phrases is an adverb of time suitable for Recount Text?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q17" value="A"> A. Everyday</label>
+                <label class="option-label"><input type="radio" name="q17" value="B"> B. Two days ago</label>
+                <label class="option-label"><input type="radio" name="q17" value="C"> C. Next week</label>
+                <label class="option-label"><input type="radio" name="q17" value="D"> D. Tomorrow morning</label>
+            </div>
+            <div class="explanation">Kunci: B. 'Two days ago' menunjuk waktu di masa lalu.</div>
+        </div>
+
+        <div class="question-card" id="q18">
+            <div class="question-number">Soal 18</div>
+            <div class="question-text">Choose the correct past sentence structure:</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q18" value="A"> A. We watch the soccer match last night.</label>
+                <label class="option-label"><input type="radio" name="q18" value="B"> B. We watching the soccer match last night.</label>
+                <label class="option-label"><input type="radio" name="q18" value="C"> C. We watched the soccer match last night.</label>
+                <label class="option-label"><input type="radio" name="q18" value="D"> D. We will watch the soccer match last night.</label>
+            </div>
+            <div class="explanation">Kunci: C. 'watched' (Verb 2) + keterangan waktu 'last night'.</div>
+        </div>
+
+        <div class="question-card" id="q19">
+            <div class="question-number">Soal 19</div>
+            <div class="question-text">Indonesian Independence _____ on August 17th, 1945.</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q19" value="A"> A. was proclaimed</label>
+                <label class="option-label"><input type="radio" name="q19" value="B"> B. is proclaimed</label>
+                <label class="option-label"><input type="radio" name="q19" value="C"> C. proclaims</label>
+                <label class="option-label"><input type="radio" name="q19" value="D"> D. will be proclaimed</label>
+            </div>
+            <div class="explanation">Kunci: A. Kalimat pasif past tense (was + V3).</div>
+        </div>
+
+        <div class="question-card" id="q20">
+            <div class="question-number">Soal 20</div>
+            <div class="question-text">Which of the following words is an action verb in the past form?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q20" value="A"> A. Happy</label>
+                <label class="option-label"><input type="radio" name="q20" value="B"> B. Carefully</label>
+                <label class="option-label"><input type="radio" name="q20" value="C"> C. Beautiful</label>
+                <label class="option-label"><input type="radio" name="q20" value="D"> D. Walked</label>
+            </div>
+            <div class="explanation">Kunci: D. 'Walked' adalah kata kerja aksi bentuk lampau.</div>
+        </div>
+
+        <!-- PART 3: TEXT 1 (PERSONAL RECOUNT) -->
+        <div class="reading-box">
+            <h4>Read the text below to answer questions 21 to 25!</h4>
+            <p>
+                Last month, my school organized a field trip to Yogyakarta. We departed from Jakarta by bus on Friday night. The journey took about ten hours, so we arrived on Saturday morning.
+                <br><br>
+                Our first destination was Borobudur Temple. The view from the top was breathtaking and we took many pictures together. After lunch, we visited Malioboro Street to buy some souvenirs and traditional snacks like Bakpia. Finally, in the evening, we went to the hotel to rest. 
+                <br><br>
+                Although we were exhausted, everyone felt happy. It was a memorable experience that I will never forget.
+            </p>
+        </div>
+
+        <div class="question-card" id="q21">
+            <div class="question-number">Soal 21</div>
+            <div class="question-text">What is the main topic of the text?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q21" value="A"> A. A school field trip to Yogyakarta</label>
+                <label class="option-label"><input type="radio" name="q21" value="B"> B. The history of Borobudur Temple</label>
+                <label class="option-label"><input type="radio" name="q21" value="C"> C. How to buy traditional snacks in Malioboro</label>
+                <label class="option-label"><input type="radio" name="q21" value="D"> D. A bus schedule from Jakarta to Yogyakarta</label>
+            </div>
+            <div class="explanation">Kunci: A. Teks menceritakan karya wisata sekolah ke Yogyakarta.</div>
+        </div>
+
+        <div class="question-card" id="q22">
+            <div class="question-number">Soal 22</div>
+            <div class="question-text">How did the writer and their school group travel to Yogyakarta?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q22" value="A"> A. By train</label>
+                <label class="option-label"><input type="radio" name="q22" value="B"> B. By airplane</label>
+                <label class="option-label"><input type="radio" name="q22" value="C"> C. By bus</label>
+                <label class="option-label"><input type="radio" name="q22" value="D"> D. By private car</label>
+            </div>
+            <div class="explanation">Kunci: C. Beralamat pada kalimat: "We departed from Jakarta by bus..."</div>
+        </div>
+
+        <div class="question-card" id="q23">
+            <div class="question-number">Soal 23</div>
+            <div class="question-text">What did the students do at Malioboro Street?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q23" value="A"> A. They took pictures of Borobudur Temple</label>
+                <label class="option-label"><input type="radio" name="q23" value="B"> B. They bought souvenirs and traditional snacks</label>
+                <label class="option-label"><input type="radio" name="q23" value="C"> C. They stayed overnight at a hotel</label>
+                <label class="option-label"><input type="radio" name="q23" value="D"> D. They ate breakfast with their teachers</label>
+            </div>
+            <div class="explanation">Kunci: B. "...visited Malioboro Street to buy some souvenirs and traditional snacks..."</div>
+        </div>
+
+        <div class="question-card" id="q24">
+            <div class="question-number">Soal 24</div>
+            <div class="question-text">How did the writer feel about the trip at the end?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q24" value="A"> A. Bored and disappointed</label>
+                <label class="option-label"><input type="radio" name="q24" value="B"> B. Angry and sad</label>
+                <label class="option-label"><input type="radio" name="q24" value="C"> C. Anxious and scared</label>
+                <label class="option-label"><input type="radio" name="q24" value="D"> D. Exhausted but happy</label>
+            </div>
+            <div class="explanation">Kunci: D. Kalimat terakhir: "Although we were exhausted, everyone felt happy."</div>
+        </div>
+
+        <div class="question-card" id="q25">
+            <div class="question-number">Soal 25</div>
+            <div class="question-text">"The view from the top was <u>breathtaking</u>..." What is the closest meaning of the underlined word?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q25" value="A"> A. Amazing / Magnificent</label>
+                <label class="option-label"><input type="radio" name="q25" value="B"> B. Scary / Terrifying</label>
+                <label class="option-label"><input type="radio" name="q25" value="C"> C. Ugly / Unpleasant</label>
+                <label class="option-label"><input type="radio" name="q25" value="D"> D. Ordinary / Normal</label>
+            </div>
+            <div class="explanation">Kunci: A. 'Breathtaking' berarti sangat menakjubkan/mempesona.</div>
+        </div>
+
+        <!-- PART 4: TEXT 2 (HISTORICAL RECOUNT) -->
+        <div class="reading-box">
+            <h4>Read the text below to answer questions 26 to 30!</h4>
+            <p>
+                <strong>The Battle of Surabaya</strong>
+                <br>
+                The Battle of Surabaya was fought between pro-independence Indonesian soldiers and British troops. On October 30, 1945, Brigadier General Mallaby was killed in Surabaya. This incident enraged the British forces.
+                <br><br>
+                Lieutenant General Sir Philip Christison issued an ultimatum demanding Indonesians to surrender their weapons by 6:00 a.m. on November 10, 1945. However, the Indonesian people refused to surrender.
+                <br><br>
+                Led by Bung Tomo, the young fighters fought bravely against the heavily armed British forces. Although thousands of Indonesians lost their lives, this battle became a national symbol of Indonesian resistance and is remembered as Heroes' Day (Hari Pahlawan).
+            </p>
+        </div>
+
+        <div class="question-card" id="q26">
+            <div class="question-number">Soal 26</div>
+            <div class="question-text">What event caused the British forces to become enraged?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q26" value="A"> A. The refusal of Indonesian people to talk</label>
+                <label class="option-label"><input type="radio" name="q26" value="B"> B. The death of Brigadier General Mallaby</label>
+                <label class="option-label"><input type="radio" name="q26" value="C"> C. The speech made by Bung Tomo</label>
+                <label class="option-label"><input type="radio" name="q26" value="D"> D. The arrival of new Indonesian weapons</label>
+            </div>
+            <div class="explanation">Kunci: B. "...Brigadier General Mallaby was killed... This incident enraged the British forces."</div>
+        </div>
+
+        <div class="question-card" id="q27">
+            <div class="question-number">Soal 27</div>
+            <div class="question-text">When was the deadline of the ultimatum given by the British force?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q27" value="A"> A. October 30, 1945</label>
+                <label class="option-label"><input type="radio" name="q27" value="B"> B. August 17, 1945</label>
+                <label class="option-label"><input type="radio" name="q27" value="C"> C. 6:00 a.m. on November 10, 1945</label>
+                <label class="option-label"><input type="radio" name="q27" value="D"> D. December 25, 1945</label>
+            </div>
+            <div class="explanation">Kunci: C. "...surrender their weapons by 6:00 a.m. on November 10, 1945."</div>
+        </div>
+
+        <div class="question-card" id="q28">
+            <div class="question-number">Soal 28</div>
+            <div class="question-text">Who was the figure that inspired and led the Indonesian fighters during the battle?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q28" value="A"> A. Bung Tomo</label>
+                <label class="option-label"><input type="radio" name="q28" value="B"> B. Ir. Soekarno</label>
+                <label class="option-label"><input type="radio" name="q28" value="C"> C. General Mallaby</label>
+                <label class="option-label"><input type="radio" name="q28" value="D"> D. Mohammad Hatta</label>
+            </div>
+            <div class="explanation">Kunci: A. "Led by Bung Tomo, the young fighters fought bravely..."</div>
+        </div>
+
+        <div class="question-card" id="q29">
+            <div class="question-number">Soal 29</div>
+            <div class="question-text">What is the text purpose?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q29" value="A"> A. To describe Surabaya city</label>
+                <label class="option-label"><input type="radio" name="q29" value="B"> B. To instruct how to use weapons</label>
+                <label class="option-label"><input type="radio" name="q29" value="C"> C. To entertain readers with a imaginary story</label>
+                <label class="option-label"><input type="radio" name="q29" value="D"> D. To retell the historical event of the Battle of Surabaya</label>
+            </div>
+            <div class="explanation">Kunci: D. Teks bertujuan menceritakan kembali peristiwa sejarah Pertempuran Surabaya.</div>
+        </div>
+
+        <div class="question-card" id="q30">
+            <div class="question-number">Soal 30</div>
+            <div class="question-text">"However, the Indonesian people <u>refused</u> to surrender." What is the synonym of "refused"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q30" value="A"> A. Accepted</label>
+                <label class="option-label"><input type="radio" name="q30" value="B"> B. Rejected</label>
+                <label class="option-label"><input type="radio" name="q30" value="C"> C. Agreed</label>
+                <label class="option-label"><input type="radio" name="q30" value="D"> D. Followed</label>
+            </div>
+            <div class="explanation">Kunci: B. Refused artinya menolak, sinonimnya adalah Rejected.</div>
+        </div>
+
+        <!-- PART 5: TEXT 3 (BIOGRAPHICAL RECOUNT) -->
+        <div class="reading-box">
+            <h4>Read the text below to answer questions 31 to 35!</h4>
+            <p>
+                Bacharuddin Jusuf Habibie was the third President of Indonesia. He was born in Parepare, South Sulawesi, on June 25, 1936.
+                <br><br>
+                Habibie studied aviation engineering in Germany and spent many years working for aircraft companies there. He became known internationally for his contributions to aeronautics, earning the nickname "Mr. Crack" for his discovery regarding aircraft structural integrity.
+                <br><br>
+                In 1978, he returned to Indonesia to serve as Minister of Research and Technology under President Soeharto. Later, in 1998, he served as President during a critical transition period. He passed away on September 11, 2019, leaving a great legacy in technology and democracy.
+            </p>
+        </div>
+
+        <div class="question-card" id="q31">
+            <div class="question-number">Soal 31</div>
+            <div class="question-text">What field of study did B.J. Habibie pursue in Germany?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q31" value="A"> A. Medicine and Health</label>
+                <label class="option-label"><input type="radio" name="q31" value="B"> B. Civil Engineering</label>
+                <label class="option-label"><input type="radio" name="q31" value="C"> C. Aviation Engineering</label>
+                <label class="option-label"><input type="radio" name="q31" value="D"> D. Political Science</label>
+            </div>
+            <div class="explanation">Kunci: C. "...studied aviation engineering in Germany..."</div>
+        </div>
+
+        <div class="question-card" id="q32">
+            <div class="question-number">Soal 32</div>
+            <div class="question-text">Why was B.J. Habibie nicknamed "Mr. Crack"?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q32" value="A"> A. Because of his discovery regarding aircraft structural integrity</label>
+                <label class="option-label"><input type="radio" name="q32" value="B"> B. Because he could fly planes easily</label>
+                <label class="option-label"><input type="radio" name="q32" value="C"> C. Because he cracked difficult codes in Germany</label>
+                <label class="option-label"><input type="radio" name="q32" value="D"> D. Because he created a new computer operating system</label>
+            </div>
+            <div class="explanation">Kunci: A. Earning nickname 'Mr. Crack' for his discovery regarding aircraft structural integrity.</div>
+        </div>
+
+        <div class="question-card" id="q33">
+            <div class="question-number">Soal 33</div>
+            <div class="question-text">In which year did B.J. Habibie become the President of Indonesia?</div>
+            <div class="options">
+                <label class="option-label"><input type="radio" name="q33" value="A"> A. 1936</label
